@@ -1,0 +1,18 @@
+{
+ "toc_entries": 119,
+ "sections_found": 331,
+ "toc_missing": [],
+ "toc_page_mismatch": [],
+ "word_coverage_vs_source": 0.976,
+ "chunks_total": 840,
+ "chunks_by_type": {
+  "body": 523,
+  "abbreviation": 90,
+  "figure_caption": 28,
+  "table": 6,
+  "glossary_term": 162,
+  "resource_list": 31
+ },
+ "chunks_without_printed_page": [],
+ "max_words": 399
+}

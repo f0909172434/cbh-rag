@@ -1,0 +1,4 @@
+﻿method,chunks,avg_words,max_words,cross_section_%,multi_page_%,ends_mid_sentence_%,body_chunks
+fixed,699,179.8,180,44.1,23.3,94.0,
+recursive,807,145.1,180,30.9,2.0,66.2,
+structure (本專案),840,125.7,399,0.0,16.9,11.4,554.0

@@ -1,0 +1,54 @@
+{
+  "pdf_sha256": "2f8a19db1883233f26fb4728ea75dc4e342e216735940959502314a46e477202",
+  "chunks": 840,
+  "audit_issues": 0,
+  "gold_questions": 22,
+  "evaluation": [
+    {
+      "method": "BM25",
+      "Hit@5": 0.545,
+      "MRR@10": 0.4,
+      "Hit@5 (中文題)": 0.308
+    },
+    {
+      "method": "TF-IDF",
+      "Hit@5": 0.5,
+      "MRR@10": 0.394,
+      "Hit@5 (中文題)": 0.308
+    },
+    {
+      "method": "Dense",
+      "Hit@5": 0.955,
+      "MRR@10": 0.886,
+      "Hit@5 (中文題)": 1.0
+    },
+    {
+      "method": "Hybrid BM25+TF-IDF",
+      "Hit@5": 0.5,
+      "MRR@10": 0.439,
+      "Hit@5 (中文題)": 0.308
+    },
+    {
+      "method": "Hybrid Dense+BM25",
+      "Hit@5": 0.955,
+      "MRR@10": 0.773,
+      "Hit@5 (中文題)": 0.923
+    },
+    {
+      "method": "本系統（改寫+Dense×2+BM25）",
+      "Hit@5": 1.0,
+      "MRR@10": 0.92,
+      "Hit@5 (中文題)": 1.0
+    }
+  ],
+  "evidence_questions": [
+    "How to use the Canadian Biosafety Handbook",
+    "BSC 要多久認證一次？"
+  ],
+  "seconds": 152.9,
+  "models": {
+    "embed": "qwen/qwen3-embedding-8b",
+    "rewrite": "anthropic/claude-haiku-5.5",
+    "answer": "anthropic/claude-sonnet-5.5"
+  }
+}

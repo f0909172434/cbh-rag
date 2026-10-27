@@ -1,0 +1,18 @@
+# 機密
+.env
+
+# Python
+__pycache__/
+.venv/
+
+# 原始 PDF 與所有含原文／頁面影像的衍生資料：
+# CBH 授權僅限「個人或內部使用」重製，不公開散布；請自行下載 PDF 後執行腳本重新產生
+*.pdf
+rag_output/*
+!rag_output/validation_report.json
+!rag_output/course/
+rag_output/course/*
+!rag_output/course/chunking_comparison.csv
+!rag_output/course/evaluation.csv
+!rag_output/course/evaluation_summary.csv
+!rag_output/course/run_summary.json

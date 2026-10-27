@@ -1,0 +1,133 @@
+﻿question,target_sections,method,Hit@5,RR@10,top1
+How to use the Canadian Biosafety Handbook,1.4,BM25,1,1.0,CBH-2E-2016:1.4:001
+How to use the Canadian Biosafety Handbook,1.4,TF-IDF,0,0.0,CBH-2E-2016:chAbbreviations:011
+How to use the Canadian Biosafety Handbook,1.4,Dense,1,0.5,CBH-2E-2016:25.1:014
+How to use the Canadian Biosafety Handbook,1.4,Hybrid BM25+TF-IDF,0,0.167,CBH-2E-2016:ch24:045
+How to use the Canadian Biosafety Handbook,1.4,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:1.4:001
+How to use the Canadian Biosafety Handbook,1.4,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:1.4:001
+Risk management in biosafety,4.4,BM25,0,0.143,CBH-2E-2016:chApp-A:002
+Risk management in biosafety,4.4,TF-IDF,0,0.0,CBH-2E-2016:ch24:135
+Risk management in biosafety,4.4,Dense,0,0.0,CBH-2E-2016:25.1:005
+Risk management in biosafety,4.4,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:ch5:001
+Risk management in biosafety,4.4,Hybrid Dense+BM25,1,0.5,CBH-2E-2016:chApp-A:002
+Risk management in biosafety,4.4,本系統（改寫+Dense×2+BM25）,1,0.25,CBH-2E-2016:5.2:001
+Biosecurity plans,6.2,BM25,1,0.5,CBH-2E-2016:18.2.4:001
+Biosecurity plans,6.2,TF-IDF,1,1.0,CBH-2E-2016:6.2:001
+Biosecurity plans,6.2,Dense,1,1.0,CBH-2E-2016:6.2.1:001
+Biosecurity plans,6.2,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:6.2:001
+Biosecurity plans,6.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:6.2.1:001
+Biosecurity plans,6.2,本系統（改寫+Dense×2+BM25）,1,0.5,CBH-2E-2016:5.3.2:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,BM25,0,0.0,CBH-2E-2016:chPreface:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,Dense,1,1.0,CBH-2E-2016:1.4:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,Hybrid Dense+BM25,1,0.5,CBH-2E-2016:chPreface:001
+生物安全手冊的指引是否具有強制法律效力？,1.3|1.4,本系統（改寫+Dense×2+BM25）,1,0.5,CBH-2E-2016:chPreface:001
+BSC 要多久認證一次？,11.3,BM25,0,0.0,CBH-2E-2016:17.3.2:001
+BSC 要多久認證一次？,11.3,TF-IDF,0,0.0,CBH-2E-2016:11.4.2:002
+BSC 要多久認證一次？,11.3,Dense,1,1.0,CBH-2E-2016:11.3:001
+BSC 要多久認證一次？,11.3,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:11.4.2:002
+BSC 要多久認證一次？,11.3,Hybrid Dense+BM25,1,0.333,CBH-2E-2016:chAbbreviations:007
+BSC 要多久認證一次？,11.3,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:11.3:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,BM25,1,1.0,CBH-2E-2016:11.1.2:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,TF-IDF,1,1.0,CBH-2E-2016:11.1.2:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,Dense,1,1.0,CBH-2E-2016:11.1.2:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:11.1.2:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:11.1.2:001
+What are the differences between the types of Class II biological safety cabinets?,11.1.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:11.1.2:001
+HEPA 過濾器的過濾效率是多少？,10.2,BM25,1,0.5,CBH-2E-2016:ch24:070
+HEPA 過濾器的過濾效率是多少？,10.2,TF-IDF,1,1.0,CBH-2E-2016:10.2:001
+HEPA 過濾器的過濾效率是多少？,10.2,Dense,1,0.5,CBH-2E-2016:ch24:070
+HEPA 過濾器的過濾效率是多少？,10.2,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:10.2:001
+HEPA 過濾器的過濾效率是多少？,10.2,Hybrid Dense+BM25,1,0.5,CBH-2E-2016:ch24:070
+HEPA 過濾器的過濾效率是多少？,10.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:10.2:001
+使用離心機時要注意哪些安全事項？,12.1,BM25,0,0.0,CBH-2E-2016:chPreface:001
+使用離心機時要注意哪些安全事項？,12.1,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+使用離心機時要注意哪些安全事項？,12.1,Dense,1,1.0,CBH-2E-2016:12.1:001
+使用離心機時要注意哪些安全事項？,12.1,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+使用離心機時要注意哪些安全事項？,12.1,Hybrid Dense+BM25,1,0.333,CBH-2E-2016:20.1.1:001
+使用離心機時要注意哪些安全事項？,12.1,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:12.1:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,BM25,0,0.0,CBH-2E-2016:chPreface:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,Dense,1,1.0,CBH-2E-2016:15.4.1.4:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:15.4.1.4:001
+高壓滅菌鍋要如何驗證是否有效？,15.4|15.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:15.4.2:001
+What should a biological spill response procedure include?,17.3,BM25,1,1.0,CBH-2E-2016:17.3.1:001
+What should a biological spill response procedure include?,17.3,TF-IDF,1,1.0,CBH-2E-2016:17.3:001
+What should a biological spill response procedure include?,17.3,Dense,1,1.0,CBH-2E-2016:17.3:001
+What should a biological spill response procedure include?,17.3,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:17.3.1:001
+What should a biological spill response procedure include?,17.3,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:17.3:001
+What should a biological spill response procedure include?,17.3,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:17.3:001
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,BM25,1,1.0,CBH-2E-2016:18.1.1.4:001
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,TF-IDF,1,0.5,CBH-2E-2016:23.5.1:002
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,Dense,1,1.0,CBH-2E-2016:18.1.1.1:003
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:18.1.1.4:001
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:18.1.1.4:001
+實驗室發生暴露事件時，什麼情況要通報 PHAC？,18.1,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:18.1.1.1:003
+Pre-placement medical evaluation for laboratory personnel,7.2,BM25,1,1.0,CBH-2E-2016:7.2:001
+Pre-placement medical evaluation for laboratory personnel,7.2,TF-IDF,1,1.0,CBH-2E-2016:7.2:001
+Pre-placement medical evaluation for laboratory personnel,7.2,Dense,1,1.0,CBH-2E-2016:7.2:001
+Pre-placement medical evaluation for laboratory personnel,7.2,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:7.2:001
+Pre-placement medical evaluation for laboratory personnel,7.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:7.2:001
+Pre-placement medical evaluation for laboratory personnel,7.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:7.2:001
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,BM25,0,0.0,CBH-2E-2016:chPreface:001
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,Dense,1,1.0,CBH-2E-2016:7.7:001
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,Hybrid Dense+BM25,0,0.167,CBH-2E-2016:19.2.1:002
+緊急醫療聯絡卡上要寫哪些資訊？,7.7,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:7.7:001
+訓練紀錄需要保存哪些內容？,8.5,BM25,0,0.0,CBH-2E-2016:chPreface:001
+訓練紀錄需要保存哪些內容？,8.5,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+訓練紀錄需要保存哪些內容？,8.5,Dense,1,1.0,CBH-2E-2016:8.5:001
+訓練紀錄需要保存哪些內容？,8.5,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+訓練紀錄需要保存哪些內容？,8.5,Hybrid Dense+BM25,1,0.333,CBH-2E-2016:19.2.1:003
+訓練紀錄需要保存哪些內容？,8.5,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:8.5:001
+How should infectious material be packaged and transported?,20.2,BM25,1,1.0,CBH-2E-2016:20.2.3:001
+How should infectious material be packaged and transported?,20.2,TF-IDF,1,1.0,CBH-2E-2016:20.2.3:001
+How should infectious material be packaged and transported?,20.2,Dense,1,1.0,CBH-2E-2016:20.2:001
+How should infectious material be packaged and transported?,20.2,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:20.2.3:001
+How should infectious material be packaged and transported?,20.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:20.2.3:001
+How should infectious material be packaged and transported?,20.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:20.2:001
+病原體庫存清單要記錄哪些資訊？,19.2,BM25,1,0.5,CBH-2E-2016:chPreface:001
+病原體庫存清單要記錄哪些資訊？,19.2,TF-IDF,1,0.5,CBH-2E-2016:chPreface:001
+病原體庫存清單要記錄哪些資訊？,19.2,Dense,1,1.0,CBH-2E-2016:19.2.1:003
+病原體庫存清單要記錄哪些資訊？,19.2,Hybrid BM25+TF-IDF,1,0.5,CBH-2E-2016:chPreface:001
+病原體庫存清單要記錄哪些資訊？,19.2,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:19.2.1:003
+病原體庫存清單要記錄哪些資訊？,19.2,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:19.2.1:003
+What is inward directional airflow and how is it verified?,10.1,BM25,1,0.333,CBH-2E-2016:22.3.2:001
+What is inward directional airflow and how is it verified?,10.1,TF-IDF,1,1.0,CBH-2E-2016:10.1:001
+What is inward directional airflow and how is it verified?,10.1,Dense,1,1.0,CBH-2E-2016:10.1.1:001
+What is inward directional airflow and how is it verified?,10.1,Hybrid BM25+TF-IDF,1,1.0,CBH-2E-2016:10.1:001
+What is inward directional airflow and how is it verified?,10.1,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:10.1:001
+What is inward directional airflow and how is it verified?,10.1,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:10.1:001
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,BM25,1,0.333,CBH-2E-2016:2.5:001
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,TF-IDF,1,0.333,CBH-2E-2016:4.3.2:001
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,Dense,1,0.5,CBH-2E-2016:25.1:019
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,Hybrid BM25+TF-IDF,1,0.5,CBH-2E-2016:2.5:001
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:15.12:001
+朊病毒（prion）汙染要怎麼除汙？,15.12|12.13|13.8,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:15.12:001
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,BM25,0,0.0,CBH-2E-2016:chPreface:001
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,Dense,1,1.0,CBH-2E-2016:9.1.1:002
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:9.1.1:002
+哪一種手套材質適合搭配漂白水等化學消毒劑？,9.1,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:9.1.1:002
+Working safely with non-human primates,13.9,BM25,1,0.5,CBH-2E-2016:13.1:003
+Working safely with non-human primates,13.9,TF-IDF,1,0.333,CBH-2E-2016:chAbbreviations:060
+Working safely with non-human primates,13.9,Dense,1,1.0,CBH-2E-2016:13.9:001
+Working safely with non-human primates,13.9,Hybrid BM25+TF-IDF,1,0.5,CBH-2E-2016:13.1:003
+Working safely with non-human primates,13.9,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:13.9:001
+Working safely with non-human primates,13.9,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:13.9:003
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,BM25,0,0.0,CBH-2E-2016:chPreface:001
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,Dense,1,1.0,CBH-2E-2016:16.2:003
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,Hybrid Dense+BM25,1,0.333,CBH-2E-2016:20.1.1:001
+生物醫療廢棄物要如何貯存與處置？,16.2|16.1,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:16.2:003
+不同化學消毒劑對各類微生物的效果比較,15.3,BM25,0,0.0,CBH-2E-2016:chPreface:001
+不同化學消毒劑對各類微生物的效果比較,15.3,TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+不同化學消毒劑對各類微生物的效果比較,15.3,Dense,1,1.0,CBH-2E-2016:15.3.2:002
+不同化學消毒劑對各類微生物的效果比較,15.3,Hybrid BM25+TF-IDF,0,0.0,CBH-2E-2016:chPreface:001
+不同化學消毒劑對各類微生物的效果比較,15.3,Hybrid Dense+BM25,1,1.0,CBH-2E-2016:15.3.2:002
+不同化學消毒劑對各類微生物的效果比較,15.3,本系統（改寫+Dense×2+BM25）,1,1.0,CBH-2E-2016:15.3.2:002
