@@ -6,7 +6,7 @@
 
 ## 授權與資料
 
-- **程式碼**：MIT License（見 `LICENSE`）。
+- **程式碼**：MIT License（見 `LICENSE`）。例外：`labs/lab06_linebot/` 是課程授課教師提供的教材，不在 MIT 授權範圍內（見該資料夾 README）。
 - **CBH PDF 與其衍生資料不在此 repo**：手冊載明僅可「個人或內部使用」重製。因此 chunks、逐頁文字、表格截圖、證據集、向量索引等含原文或頁面影像的檔案都沒有公開，請自行下載 PDF 後用腳本重新產生。repo 內只附不含原文的結果（`validation_report.json`、`rag_output/course/` 的評測與比較數據）。
 - 手冊是 2016 年的指引，不等於現行法規要求。
 
@@ -39,6 +39,7 @@ python course_pipeline.py cbh-gcb-eng.pdf              # 5. 選用：課程 M1/M
 | `rag_output/table_images/` | 每張表格的原始 PDF 截圖（人工或 VLM 核對用） |
 | `rag_output/validation_report.json` | 自動驗證結果 |
 | `course_pipeline.py` / `rag_output/course/` | 對齊課程 M1/M2 的交付物（見下方對照表） |
+| `labs/lab06_linebot/` | 課程 Lab06：同一份手冊的 RAG + LINE Bot（Voyage embedding + Claude，FastAPI webhook）。獨立的 `requirements.txt`，用法見該資料夾 README；教師教材，非 MIT |
 
 ## 方法選擇
 

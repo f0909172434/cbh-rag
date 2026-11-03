@@ -1,0 +1,30 @@
+# 所有可調參數集中在這裡，程式碼不寫死
+
+# --- LLM（provider:model 寫法，交給 init_chat_model 解析）---
+# 預設 Anthropic（需要 ANTHROPIC_API_KEY）
+llm_model: "anthropic:claude-haiku-5-5"
+# 想改用 OpenAI：1) pip install langchain-openai  2) .env 加 OPENAI_API_KEY
+#   3) 把上面改成 "openai:<你帳號可用的模型名稱>"（型號請查 OpenAI 官方文件）
+
+# --- Embedding（Voyage）---
+embedding_model: "voyage-4"
+
+# --- 切塊與檢索 ---
+chunk_size: 1000
+chunk_overlap: 150
+top_k: 4
+# 建索引每批送幾個 chunk。免費帳號有限速（3 RPM / 10K TPM）所以要小批；付費帳號可調大（如 128）
+ingest_batch_size: 32
+
+# --- 路徑 ---
+pdf_path: "cbh-gcb-eng.pdf"              # 相對於專案根目錄（與 cbh-rag 根 README 下載位置相同）
+index_dir: "index"                        # 相對於 lab06_linebot/
+
+# --- Prompt ---
+system_prompt: |
+  你是加拿大生物安全手冊（Canadian Biosafety Handbook）的問答助理。
+  規則：
+  1. 一律用繁體中文回答，專有名詞可附英文原文。
+  2. 只能根據下方【檢索內容】回答，不要用自己的知識補充。
+  3. 如果檢索內容找不到答案，就直接說「在手冊中找不到相關內容」。
+  4. 回答簡潔，最後不用自己列頁碼（系統會附上）。

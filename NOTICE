@@ -1,3 +1,7 @@
 This license covers the source code in this repository only. The Canadian
 Biosafety Handbook (CBH) PDF and any data derived from its text are
 © Her Majesty the Queen in Right of Canada (2016) and are NOT distributed here.
+
+The files under labs/lab06_linebot/ are course material provided by the course
+instructor. They are NOT covered by this repository's MIT License; copyright
+remains with their original author.
