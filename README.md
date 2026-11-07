@@ -1,14 +1,14 @@
-# CBH 2nd Ed. → RAG 結構化資料（含來源追溯）
+# CBH 2nd Ed. RAG 結構化資料（含來源追溯）
 
-來源：*Canadian Biosafety Handbook (CBH), 2nd Edition, 2016*（PHAC/CFIA），PDF 共 366 頁。
+這個專案把一份 366 頁的生物安全手冊做成問答系統，而且每個回答都能追回原文的哪一頁、哪個位置。來源文件是 *Canadian Biosafety Handbook (CBH), 2nd Edition, 2016*（PHAC/CFIA）。
 
-把一份法規類 PDF 做成**可追溯來源、可驗證引用**的 RAG：依版面結構切塊、每個 chunk 帶章節／PDF 頁碼／印刷頁碼／bbox，混合檢索（多語系向量 + BM25），LLM 以結構化格式回答並附逐字引述，最後由程式驗證引述確實存在於原文。
+做法分成四步。先依版面結構切塊，每個 chunk 都帶章節、PDF 頁碼、印刷頁碼與 bbox。檢索時同時用多語系向量與 BM25。LLM 以結構化格式回答，每個論點附上逐字引述。最後由程式檢查這些引述是否真的出現在原文中。
 
 ## 授權與資料
 
 - **程式碼**：MIT License（見 `LICENSE`）。例外：`labs/lab06_linebot/` 是課程授課教師提供的教材，不在 MIT 授權範圍內（見該資料夾 README）。
-- **CBH PDF 與其衍生資料不在此 repo**：手冊載明僅可「個人或內部使用」重製。因此 chunks、逐頁文字、表格截圖、證據集、向量索引等含原文或頁面影像的檔案都沒有公開，請自行下載 PDF 後用腳本重新產生。repo 內只附不含原文的結果（`validation_report.json`、`rag_output/course/` 的評測與比較數據）。
-- 手冊是 2016 年的指引，不等於現行法規要求。
+- **CBH PDF 與其衍生資料不在此 repo**：手冊載明只能為「個人或內部使用」重製。所以 chunks、逐頁文字、表格截圖、證據集、向量索引這些含有原文或頁面影像的檔案都沒有公開，請自行下載 PDF，再用腳本重新產生。repo 只附上不含原文的結果，也就是 `validation_report.json` 與 `rag_output/course/` 裡的評測與比較數據。
+- 這本手冊是 2016 年的指引，內容不等於現行法規的要求。
 
 ## 快速開始
 
@@ -81,13 +81,13 @@ python course_pipeline.py cbh-gcb-eng.pdf              # 5. 選用：課程 M1/M
 補充說明：
 - **重疊（overlap）**：同一節內，第 2 個以後的 chunk 開頭會是 `…` + 前一個 chunk 最後 40 個字（`OVERLAP_WORDS`），所以相鄰 chunk 的 `text` 會有一小段重複，這是刻意的。
 - **前置頁**：Preface 和 Abbreviations 被當成「虛擬章」，`chapter_no` 分別是 `Preface`、`Abbreviations`，所以引用標籤會出現 `Ch.Preface`，不是錯誤。附錄是 `App-A`、`App-B`。
-- **斷字**：PDF 行尾有連字號的字會直接接回（`non-` + `enveloped` → `non-enveloped`）。`verify` 比對時會忽略連字號差異。
+- **斷字**：PDF 行尾有連字號的字會直接接回（`non-` + `enveloped` 接成 `non-enveloped`）。`verify` 比對時會忽略連字號差異。
 
 ## 灌進 RAG 的建議
 
 1. **Embedding**：用 `embed_text`，其餘欄位存成 metadata（Chroma / Qdrant / pgvector / Weaviate 都可）。
 2. **Hybrid 檢索**：向量 + BM25。這份文件縮寫很多（BSC、HPTA、CL3），關鍵字比對表現比較好。
-3. **Metadata 過濾**：例如「定義類問題」→ 優先找 `chunk_type in (glossary_term, abbreviation)`；「法規義務」→ `modal_verbs` 含 `must` 或 `regulatory_refs` 不為空。
+3. **Metadata 過濾**：例如「定義類問題」優先找 `chunk_type in (glossary_term, abbreviation)`；「法規義務」則找 `modal_verbs` 含 `must`，或 `regulatory_refs` 不為空的 chunk。
 4. **擴充上下文**：拿到某個 chunk 後，可以用 `section_id` 撈回同節的相鄰 chunk，用 `defined_terms_used` 帶入對應的詞彙定義。
 
 ## 強制引用的 Prompt（防幻覺）
@@ -104,21 +104,21 @@ python course_pipeline.py cbh-gcb-eng.pdf              # 5. 選用：課程 M1/M
 </context>
 ```
 
-接著用程式驗證（這一步 LLM 無法造假）：
+接著用程式驗證。這一步由程式直接比對原文，LLM 無法偽造結果：
 
 ```bash
 python trace_tools.py verify answer.json      # chunk_id 必須存在，quote 必須真的出現在原文
 python trace_tools.py show CBH-2E-2016:4.3.8.4:001 /path/to/cbh-gcb-eng.pdf   # 在原頁框出來源位置
 ```
 
-沒通過驗證的回答 → 不顯示，或標示「未驗證」並要求模型重新產生。
+沒有通過驗證的回答就不顯示，或標示「未驗證」並要求模型重新產生。
 
 ## 驗證結果（`validation_report.json`）
 
-- 目錄（TOC）119 個節條目全部找到，印刷頁碼與目錄全部一致 ✅
-- 共找到 331 個章節（含第 3、4 層）
-- 輸出與原文的字詞覆蓋率 97.6%（缺的主要是標題與章節分隔頁，標題已存進 metadata）
-- 840 個 chunk 全部有印刷頁碼；最長的 chunk 399 字（約 520 tokens）
+- 目錄（TOC）的 119 個節條目全部找到，印刷頁碼也與目錄完全一致。
+- 共找到 331 個章節，包含第 3、4 層。
+- 輸出與原文的字詞覆蓋率是 97.6%。缺的主要是標題與章節分隔頁，而標題已經存進 metadata。
+- 840 個 chunk 全部有印刷頁碼。最長的 chunk 有 399 字，約 520 tokens。
 
 ## Chunking 策略：結構感知（structure-aware）+ 段落累積
 
@@ -129,14 +129,14 @@ python trace_tools.py show CBH-2E-2016:4.3.8.4:001 /path/to/cbh-gcb-eng.pdf   # 
 5. **特殊內容一個一塊**：表格、詞彙表術語、縮寫、圖說。
 6. **embedding 時前綴章節路徑**（`embed_text`）。
 
-## OpenRouter VLM 補強（`openrouter_enrich.py` → `chunks_enriched.jsonl`）
+## OpenRouter VLM 補強（`openrouter_enrich.py` 產生 `chunks_enriched.jsonl`）
 
 - 模型：`anthropic/claude-sonnet-5.5`（可用 `--model` 換）；API key 放在 `.env`（已列入 `.gitignore`）
-- 4 張 `needs_review` 表格 → `table_header_vlm` / `table_rows_vlm` / `vlm_text`，合併儲存格已向下填滿
-  - **每一格都回頭比對 PDF 文字層**，對不到的列在 `vlm_unverified_cells`（本次只有 Table 15–2 有 4 格，3 格是換行造成的，1 格是符號 `+/L*`，請人工核對）
-- 28 張圖 → `figure_description_vlm`（圖內標籤、流程分支，例如 Figure 18–2 決策圖）
+- 4 張 `needs_review` 表格由 VLM 重建，結果寫入 `table_header_vlm` / `table_rows_vlm` / `vlm_text`，合併儲存格已向下填滿。
+  - **每一格都回頭比對 PDF 文字層**，對不到的列在 `vlm_unverified_cells`。這次只有 Table 15–2 有 4 格對不到：3 格是換行造成的，1 格是符號 `+/L*`，請人工核對。
+- 28 張圖由 VLM 描述，寫入 `figure_description_vlm`，內容包含圖內標籤與流程分支，例如 Figure 18–2 決策圖。
 - 每個 chunk 都有 `content_origin`（`pdf_text` / `pdf_text+vlm_table_layout` / `pdf_caption+vlm_description`）和 `generated_by`（模型、日期）
-- `trace_tools.py verify` 會優先讀 `chunks_enriched.jsonl`；引述只出現在 VLM 內容時標 ⚠（可用，但不是 PDF 原文）
+- `trace_tools.py verify` 會優先讀 `chunks_enriched.jsonl`。引述只出現在 VLM 內容時會標 ⚠，代表可以用，但不是 PDF 原文。
 - **向量庫建議用 `chunks_enriched.jsonl`**（`embed_text` 已換成 VLM 重建的表格與圖描述）
 
 ## LangChain 問答管線（`rag_langchain.py`）
@@ -158,11 +158,11 @@ python rag_langchain.py ask "發生實驗室事故後，怎麼判斷是否需要
 
 可用環境變數換模型：`CBH_ANSWER_MODEL`、`CBH_REWRITE_MODEL`、`CBH_EMBED_MODEL`。
 
-注意：OpenRouter 上的這些 Claude 模型不支援強制 `tool_choice`，所以 structured output 用 `method="json_schema", strict=True`（`function_calling` 會回 400）。
+OpenRouter 上的這些 Claude 模型不支援強制 `tool_choice`，所以 structured output 改用 `method="json_schema", strict=True`。改用 `function_calling` 會得到 400 錯誤。
 
-測試結果（5 題）：表格查詢、比較題（引用 Table 11–1）、術語定義、流程判斷（Ch.18 通報規則）全部引用驗證通過；範圍外問題（COVID-19 疫苗劑數）正確回答「手冊未提及」。
+我用 5 題測試過這條管線。表格查詢、引用 Table 11–1 的比較題、術語定義，以及 Ch.18 通報規則的流程判斷，引用全部通過驗證。範圍外的問題（COVID-19 疫苗劑數）則正確回答「手冊未提及」。
 
-## 對照課程 M1 / M2（`course_pipeline.py` → `rag_output/course/`）
+## 對照課程 M1 / M2（`course_pipeline.py` 產生 `rag_output/course/`）
 
 ```bash
 python course_pipeline.py /path/to/cbh-gcb-eng.pdf
@@ -214,7 +214,7 @@ structure 的 11.4%「句中截斷」主要是詞彙表、縮寫、表格這類�
 
 ### 課程討論題
 
-- **M1-5／M2-3 bbox 一致性 ≠ 法規正確性**：技術稽核只證明「這段文字真的在那一頁那個位置、沒被改過」；不證明這段文字回答了問題、條件完整、或在現行法規下仍有效。本專案把三層分開：`audit`（位置/雜湊）→ `verify`（回答的引述逐字存在）→ 內容是否支持結論仍需人工或評測集判斷。
+- **M1-5／M2-3 bbox 一致性 ≠ 法規正確性**：技術稽核只證明「這段文字真的在那一頁那個位置、沒被改過」；不證明這段文字回答了問題、條件完整、或在現行法規下仍有效。本專案把三層分開：`audit` 檢查位置與雜湊，`verify` 檢查回答的引述逐字存在，至於內容是否支持結論，仍需要人工或評測集判斷。
 - **M2-1 BM25+TF-IDF 為何不等於 Dense+Sparse Hybrid**：兩者都是詞彙比對，錯在同一類地方（同義詞、跨語言）。評測可見中文題兩者都只有 0.308，融合後沒有提升；加入 Dense 才補上語意與跨語言。
 - **M2-2 section_id 誤判時 Parent Expansion 的風險**：會把不相關章節的文字當成上下文，模型可能據此作答。本專案章節由字型辨識並通過目錄 119/119 驗證，且展開只限同一 parent 章節、前後 2 個 chunk、總數上限 12。
 - **M2-4 「現行有效法規」為何不能直接引 2016 手冊**：CBH 2nd Ed. 是 2016 年的指引，CBS 與 HPTA/HPTR 之後可能修訂；它本身也說明是「指引」而非要求（§1.4）。所有 chunk 都帶 `pub_date: 2016-03`，回答若涉及現行要求，應另外查核最新版 CBS／法規後才能下結論。
