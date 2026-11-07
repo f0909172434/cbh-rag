@@ -4,6 +4,10 @@
 # Python
 __pycache__/
 .venv/
+*.log
+
+# labs：FAISS 索引含手冊原文，不公開
+labs/*/index/
 
 # 原始 PDF 與所有含原文／頁面影像的衍生資料：
 # CBH 授權僅限「個人或內部使用」重製，不公開散布；請自行下載 PDF 後執行腳本重新產生
